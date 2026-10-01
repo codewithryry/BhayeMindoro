@@ -1,0 +1,37 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+dev-dist/
+
+# local env files (never commit real keys)
+.env
+.env.*
+!.env.example
+
+# typescript
+*.tsbuildinfo
+
+# debug
+npm-debug.*
+*.log
+
+# OS / editor
+.DS_Store
+Thumbs.db
+
+# signing keys
+*.jks
+*.keystore
+*.p8
+*.p12
+*.key
+*.pem
+
+# supabase cli
+supabase/.temp/
+supabase/.branches/
+
+# android/ is a Capacitor native project and IS committed.
+# Its own android/.gitignore excludes build outputs and copied web assets.

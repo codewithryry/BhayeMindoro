@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="fil">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#1FAE5B" />
+    <meta name="description" content="Gabay sa pamasahe at biyahe sa Mindoro" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/icon-1024.png" />
+    <!-- Inter if online, loaded without blocking first paint; system font offline. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      media="print"
+      onload="this.media = 'all'"
+    />
+    <title>Bhaye Mindoro</title>
+  </head>
+  <body>
+    <div id="root">
+      <!-- Shown until React mounts, and if JavaScript fails to load at all. -->
+      <noscript>Kailangan ng JavaScript para gumana ang Bhaye Mindoro.</noscript>
+    </div>
+    <script>
+      // Last-resort fallback if the app bundle fails before React can mount
+      // (React render errors are handled by the ErrorBoundary instead).
+      window.addEventListener(
+        'error',
+        function (event) {
+          console.error('[Bhaye Mindoro] Startup error', event.error || event.message);
+          setTimeout(function () {
+            var root = document.getElementById('root');
+            if (root && !root.querySelector('.shell, .auth-screen, .splash, [role="alert"]')) {
+              root.innerHTML =
+                '<div role="alert" style="min-height:100vh;padding:24px;display:flex;flex-direction:column;justify-content:center;gap:12px;text-align:center;font-family:system-ui,sans-serif;background:#F4FAF6;color:#1A2B22">' +
+                '<h1 style="margin:0;color:#13773E">Bhaye Mindoro</h1>' +
+                '<p style="margin:0;font-size:18px">May problema sa pag-load ng app.</p>' +
+                '<button onclick="location.reload()" style="align-self:center;min-height:52px;padding:0 28px;border:0;border-radius:12px;font-size:17px;font-weight:700;color:#fff;background:#13773E">Subukan ulit</button>' +
+                '</div>';
+            }
+          }, 0);
+        },
+        true,
+      );
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
